@@ -1,0 +1,125 @@
+
+General Overview
+1. Download and Install VMWare to allow you have your own server on your machine/Laptop  --Have at least 4GB memory (8 is better)
+2. Download and Deploy Windows Server 2012 R2 on VMWare  Workstation Player (Deploy 3 servers)
+3. Download SQL Server 2016 and latest update from buildnumbers.wordpress.com/sqlserver/
+4. Create Domain controller
+5. Add 2 other servers to the DC
+6. Configure network fileshare for Quorum configuration, and AlwaysOn Synchronization
+7. Configure Windows Failover Clustering (AlwaysOn mode)
+8. Install SQL Server 2016
+9. Configure AlwaysOn Availability groups
+10.Run sp_blitz for HealthCheck (Stored Procedure by Brent Ozar Unlimited)
+
+*******************************************
+Vmware Configuration
+--Moving files between Local and Virtual server easily
+
+--Change Networking settings to Bridged
+
+Reason
+1. Bridged connects to virtual network by using the network adapter on the host system. If the host system is on a network, Bridged networking is often the easiest way
+to give the virtual machine access to that network
+
+2. NAT Networking, the virtual machine does not have its own IP address on the external network. Instead a private network is set up on the host system.
+Therefore, it will seem like they are on different network
+
+3. Host-only networking creates a network that is completely contained within the host computer. the networking is only visible to the 
+host through a virtual private network.
+
+
+*******************************************
+Set up Domain Controller Environment
+
+
+--What is a DC?
+A Domain controller is a server on a Microsoft Windows that is responsible for allowing host access to Windows domain resources. 
+It stores user account information, authenticates users and enforces security policy for a Windows domain.
+
+
+
+--Install Active directory feature
+--promote to Domain controller on DC server
+--create a SQL Service Account administrator on the Domain Controller Server
+--Create SQL Admin Domain user account for each server
+
+
+
+Cluster Management => Service Account (Domain USer)
+SQL Management => Service Account (Domain User)  -Local Administrator Rights 
+
+
+*******************************************
+
+Keyboard Tips
+-Use Ctrl+alt+insert  instead of ctrl+alt+del
+-When the mouse pointer disappears, use ctrl then alt
+
+*******************************************
+
+Windows Server Environment
+--set the timezone on all servers appropraitely
+--Disable firewall on all servers
+--Add NET framework 3.5 on all servers
+--Add Failover cluster feature on all nodes
+--Add Application Server role on all nodes if you will be needed Distributed transactions for MSDTC
+--Name the servers appropriately
+--Connect using RDC
+--Join the node to the domain
+--Create a file share on the fileshare server and grant permissions
+
+
+
+--IP Configuration
+
+
+DC
+IP Address		192.168.1.110 
+Subnet			255.255.255.0
+Default Gateway		Router IP address 192.168.1.146
+DNS Servers		127.0.0.1
+
+
+
+
+*******************************************
+
+Primary Server
+IP Address		192.168.1.111
+Subnet			255.255.255.0
+Default Gateway		Router IP address   192.168.1.146
+DNS Servers		192.168.1.110 
+
+
+
+
+*******************************************
+Secondary Server
+IP Address		192.168.1.112
+Subnet			255.255.255.0
+Default Gateway		Router IP address  192.168.1.146
+DNS Servers		192.168.1.110 
+
+
+
+*******************************************
+Fileshare Server
+--Create Network share and give permissions to SQL Accounts created
+
+IP Address		192.168.1.113
+Subnet			255.255.255.0
+Default Gateway		Router IP address   192.168.1.146
+DNS Servers		192.168.1.110 
+
+
+
+
+
+
+
+
+
+
+
+
+

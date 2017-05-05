@@ -1,0 +1,6 @@
+--TempDB sizing
+--Corruption fixing
+--Troubleshooting Locking and Deadlocking with start up parameters
+--Examining Wait states
+--Relocating data files
+--Point in time recovery
