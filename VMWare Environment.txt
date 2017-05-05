@@ -1,0 +1,18 @@
+--Set up your environment using VMWare
+--Download and Install VMWare 
+--Download and configure Windows Server
+--Rename the server
+-Configure Domain Controller network
+DC IP - 192.168.1.110
+--Configure the domain controller
+--Set up fileshare between local and remote10
+--Download SQL Server
+
+--Configure CPU and Memory resources
+--Configure VMware tools
+
+--Create Domain Controller
+--
+
+
+firewall

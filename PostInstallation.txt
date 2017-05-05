@@ -1,0 +1,59 @@
+Post installation tasks
+
+
+--Verify SQL Servers running on your domain
+
+--Patch the SQL Server with the latest Service Pack and Updates
+
+--Disable Unneeded Services
+
+--Change the Service Start Mode
+
+--Specify the Service Recovery
+
+--Change the SQL Default Directories
+
+--Set the Database Properties
+
+
+--Set the Minimum and Maximum Server Memory  
+
+
+--Configure Remote Query Timeout
+
+--Configure the Authentication Mode
+
+--Configure SQL Server Network
+
+1. Shared Memory
+2. TCP\IP
+3. Named Pipes
+
+
+--Configure SQL Security
+
+
+--Configure SQL Error Logs
+
+
+--Configure Operating System
+ 1. Network DTC  (distributed Transaction Coordinator)  --- 
+ 2. Lock Pages in memory  (Allows SQL Service account to avoid swapping memory pages to disk)
+
+--Instant File Initialization  (fills it up with zeros)
+
+1. Create Database
+2. Add files, log or data, to an existing database
+3. Increase the size of an exisiting file (Auto growth)
+4. Restore a database or filegroup
+ secpol.msc
+
+
+--Verify User Datafiles are not on C:Drive And are placed in drives decided during pre-installation
+--Configure Database mail
+--Configure Alerts
+--Set up Maintenance Plans
+--Run Sp_blitze
+--TempDB Database Best Practices
+--Set the Default Index Fill Factor
+--Configure Processor Max Degree of parallelism
