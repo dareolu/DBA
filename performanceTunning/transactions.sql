@@ -126,6 +126,26 @@ where a.account_type = 'savings'
 
 
 
+--SQL Stress
+
+
+insert into accounts (customer_id, account_type, amount)
+values (1, 'savings', 5000), (1, 'current', 2000),
+	   (2, 'savings', 300), (2, 'current', 100)
+	   
+	   
+
+
+
+
+update accounts
+set amount = amount + 200
+where customer_id = 2
+
+update accounts
+set amount = amount + 200
+where customer_id = 1
+
 
 
 
